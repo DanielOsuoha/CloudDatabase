@@ -1,0 +1,150 @@
+/* Base styles and variables */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --background-color: #f8f9fa;
+    --text-color: #2c3e50;
+    --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-brand {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: var(--secondary-color);
+}
+
+/* Schedule Page Specific Styles */
+.page-header {
+    margin-top: 80px;
+    text-align: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+.schedule-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.schedule-day {
+    margin-bottom: 3rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+}
+
+.schedule-day h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.event-card {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    background: white;
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 0 4px 4px 0;
+    transition: transform 0.2s;
+}
+
+.event-card:hover {
+    transform: translateX(10px);
+}
+
+.event-card time {
+    min-width: 100px;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.event-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.event-content p {
+    color: #666;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .event-card {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .event-card time {
+        min-width: auto;
+    }
+}
