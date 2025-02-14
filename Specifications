@@ -1,0 +1,132 @@
+In this exercise, you will do the following:
+
+Create a basic webpage with navigation to at least two pages
+Launch an EC2 instance through the AWS console (i.e. build a “virtual laptop” to serve your website)
+SSH into to the EC2 instance and install a web server (i.e. use the terminal to “log in” to the “virtual laptop” and interact with it)
+Host your website on the EC2 instance (i.e. “deploy” the static html files to the web)
+Directions
+
+Before starting, ensure that your vocareum lab has been activated and is ready to go. You may login using the link below.
+
+https://awsacademy.instructure.com/
+
+Part 1
+
+Launch an EC2 Instance
+Sign in to the AWS console and search for “EC2”. Navigate to the EC2 dashboard and click “Launch Instance”.
+
+1. Choose AMI
+
+In this step you will choose the operating system for your “virtual laptop” and the basic set of software that will come preinstalled.
+
+Choose a free-tier eligible Linux option (Amazon Linux AMI, SSD Volume Type) and click “Select”
+
+2. Choose Instance Type
+
+In this step, you will choose how powerful the “virtual laptop” will be — things like the number of CPUs, amount of memory, type of hard disk/storage, and network speed.
+
+Choose the option marked as free tier eligible (General Purpose — t2.micro)— it will be one of the smallest, least powerful options. Click next to configure instance details.
+
+3. Configure Instance
+
+In this step, you will accept all of the default options. Glance at the options to get a sense of the types of things that can be done here.
+
+Click next to add storage.
+
+4. Add Storage
+
+In this step, you will choose the hard drive(s) for your “virtual laptop”, and how fast it will perform. By default, a hard drive is already attached (it is known as a root drive because it is capable of starting the operating system).
+
+You can change the default drive’s configuration and/or add additional hard drives to your “virtual laptop” in this step.
+
+We will accept the default options and move to the next step. Click next to add tags.
+
+5. Add Tags
+
+In this step you can add “tags” to help you to manage and administer your AWS resources. We don’t have a need for this, but add one for the experience.
+
+Click Add Tag— enter “name” for the key and “WebServer” for the value.
+
+Click Next to Configure the Security Group
+
+6. Configure Security Group
+
+In this step, you will choose the type of traffic your “virtual laptop” will allow from the outside. You need to allow two types of traffic — SSH (so we can “log in” to the virtual laptop) and HTTP (so we can view our webpage through the browser).
+
+Select “Create a new security group”. Enter anything you want for the name and description
+
+Keep the SSH rule that is already listed.
+
+Click “add rule”. Select HTTP for the type and keep everything else as it is.
+
+Click review and launch.
+
+7. Review
+
+Ignore the security warning (we will tear down this instance as soon as we are done) and click Launch.
+
+A pop up window will ask you to select or create a key pair. A key pair is needed to securely SSH (“log in”) to our new EC2 instance.
+
+Select ‘Create a new key pair’
+Give the Key Pair a name — e.g. ‘ec2-key-pair’
+Click Download Key Pair
+Click Launch Instances
+Click View Instance to navigate back to the EC2 dashboard
+ 
+
+Part 2
+
+SSH into the EC2 instance and Install a Web Server
+You will see your new instance listed on the EC2 dashboard. Wait until the Instance State is ‘running’.
+
+1. After the instance state updates to running, from the actions menu, select connect. A new  connection needs to be created with the server.
+
+2. Connect then continue with the steps below.
+
+At this point, your terminal is now interacting directly with your EC2 instance (aka your “virtual laptop”) — rather than your physical machine.
+
+3. Elevate your privileges
+
+sudo su
+4. Update all of the packages on the instance
+
+yum update -y
+(note: if you are familiar with using homebrew on your Mac, you can think of the way we are using yum here as similar to brew)
+
+5. Install an apache webserver
+
+yum install httpd -y
+6. Start the webserver
+
+service httpd start
+7. Configure the web server to restart if it gets stopped
+
+chkconfig httpd on
+
+
+Part 3
+Add a static HTML file to be served
+By default, the apache web server will display the index.html file found in /var/www/html directory in the root path of your website.
+
+In this section you will create an index.html file to be served.
+
+Navigate to the directory
+cd /var/www/html 
+2. Manually create an index.html file using notepad, then copy using either vi or nano.
+
+Using your preferred editor (vi, nano, etc) create the index.html file:
+
+nano index.html
+copy the valid html to the file. And example of html code is below
+
+<html><body>My first EC2 instance</body></html>
+The content of the html page can be basic for now, but we will modify this later on.
+
+Exit and save. Make sure that the file has content:
+
+cat index.html
+Navigate back to the EC2 dashboard in the AWS console and copy the Public DNS(IPV4) of your instance into your clipboard. Paste that address into your browser. If all went well, you will see the html that you just created!
+
+ 
+
+For the submission, please provide the IP address of your ec2 instance and a screenshot of your hosted page when you visit it.
