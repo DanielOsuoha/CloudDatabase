@@ -1,24 +1,24 @@
 /* Modern Color Scheme */
 :root {
-    --primary: #2D3436;
-    --secondary: #0984E3;
-    --accent: #00B894;
-    --background: #F8F9FA;
+    --primary: #1e1f20;
+    --secondary: #625293;
+    --accent: #149c81;
+    --background: hsl(210, 17%, 98%);
     --text: #2D3436;
     --white: #FFFFFF;
-    --gradient: linear-gradient(135deg, var(--secondary), var(--accent));
+    --gradient: linear-gradient(120deg, var(--secondary), var(--accent));
 }
 
 
 * {
-    margin: 0;
-    padding: 0;
+    margin: 5px;
+    padding: 5px;
     box-sizing: border-box;
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    line-height: 1.6;
+    line-height: 1.7;
     color: var(--text);
     background-color: var(--background);
 }
@@ -62,7 +62,7 @@ body {
     color: var(--white);
 }
 
-/* Hero Section */
+
 .hero {
     margin-top: 80px;
     padding: 8rem 5%;
@@ -83,7 +83,7 @@ body {
 .hero p {
     font-size: 1.25rem;
     margin-bottom: 1rem;
-    animation: fadeInUp 1s ease;
+    animation: fadeInUp 2s ease;
 }
 
 .cta-button {
@@ -95,7 +95,7 @@ body {
     font-weight: 600;
     border-radius: 30px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.6s ease;
     animation: fadeInUp 1.2s ease;
 }
 
@@ -146,7 +146,7 @@ main {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(25px);
     }
     to {
         opacity: 1;
