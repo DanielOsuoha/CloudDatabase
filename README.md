@@ -4,7 +4,7 @@ A static website for a technology conference hosted on AWS EC2. The website feat
 
 ## Live Demo
 
-Visit the website: [http://3.17.156.63](http://3.17.156.63)
+Visit the [website](http://3.14.128.54/index.html)
 
 ## 📋 Features
 
