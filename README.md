@@ -1,6 +1,6 @@
 # TechConf 2025 Website
 
-A static website for a technology conference hosted on AWS EC2. The website features a responsive design with schedule information, speaker profiles, and conference details.
+A website for a technology conference hosted on AWS. The website features a responsive design with schedule information, speaker profiles, and conference details.
 
 ## Live Demo
 
@@ -22,7 +22,7 @@ Visit the [website](http://3.14.128.54/index.html)
 - AWS EC2 for hosting
 - Apache Web Server
 
-## 🏗 Project Structure
+## Project Structure
 
 ```plaintext
 frontend/
